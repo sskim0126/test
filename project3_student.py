@@ -66,6 +66,13 @@ obstacle = 1
 # running time of the first turn
 SwingPr = 90  # student assignment (8)
 SwingTr = 0.9  # student assignment (9)
+SwingPl = 90
+SwingTl = 0.9
+PointPr = 90
+PointTr = 0.9
+PointPl = 90
+PointTl = 0.9
+
 
 try:
     while True:
@@ -83,6 +90,22 @@ try:
             # stop and wait 1 second
             stop()
             sleep(1)
+            if obstacle == 1:
+                rightSwingTurn(SwingPl, SwingTl)
+                obstacle += 1
+                sleep(1)
+            elif obstacle == 2:
+                rightPointTurn(PointPl, PointTl)
+                obstacle += 1
+                sleep(1)
+            elif obstacle == 3:
+                leftPointTurn(PointPr, PointTr)
+                obstacle += 1
+                sleep(1)
+            elif obstacle == 4:
+                leftSwingTurn(SwingPr, SwingTr)
+                obstacle += 1
+                sleep(1)
 
 
             ########################################################
