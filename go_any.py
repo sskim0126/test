@@ -77,15 +77,19 @@ def leftmotor(x):
         GPIO.output(MotorLeft_A, GPIO.LOW)
         GPIO.output(MotorLeft_B, GPIO.HIGH)
     else:
-        print
-        'Config Error'
+        print('Config Error')
 
 
 
 def rightmotor(x):
-
-
-# student assignment (3)
+    if x == True:
+        GPIO.output(MotorRight_A, GPIO.HIGH)
+        GPIO.output(MotorRight_B, GPIO.LOW)
+    elif x == False:
+        GPIO.output(MotorRight_A, GPIO.LOW)
+        GPIO.output(MotorRight_B, GPIO.HIGH)
+    else:
+        print('Config Error')
 
 # =======================================================================
 # because the connetions between motors (left motor) and Rapberry Pi has been
@@ -128,9 +132,11 @@ RightPwm = GPIO.PWM(MotorRight_PWM, 100)
 # =======================================================================
 
 def go_forward_any(speed):
-
-
-# student assignment (4)
+    while True:
+        GPIO.output(MotorLeft_PWM, GPIO.HIGH)
+        GPIO.output(MotorRight_PWM, GPIO.HIGH)
+        leftmotor(forward0)
+        rightmotor(forward0)
 
 # =======================================================================
 #  go_backward_any method has been generated for the three-wheeled moving
@@ -138,9 +144,11 @@ def go_forward_any(speed):
 # =======================================================================
 
 def go_backward_any(speed):
-
-
-# student assignment (5)
+    while True:
+        GPIO.output(MotorLeft_PWM, GPIO.HIGH)
+        GPIO.output(MotorRight_PWM, GPIO.HIGH)
+        leftmotor(backward0)
+        rightmotor(backward0)
 
 # =======================================================================
 #  go_forward_any method has been generated for the three-wheeled moving
@@ -148,9 +156,11 @@ def go_backward_any(speed):
 # =======================================================================
 
 def go_forward(speed, running_time):
-
-
-# student assignment (6)
+    GPIO.output(MotorLeft_PWM, GPIO.HIGH)
+    GPIO.output(MotorRight_PWM, GPIO.HIGH)
+    leftmotor(forward0)
+    rightmotor(forward0)
+    sleep(running_time)
 
 
 # =======================================================================
@@ -159,9 +169,11 @@ def go_forward(speed, running_time):
 # =======================================================================
 
 def go_backward(speed, running_time):
-
-
-# student assignment (7)
+    GPIO.output(MotorLeft_PWM, GPIO.HIGH)
+    GPIO.output(MotorRight_PWM, GPIO.HIGH)
+    leftmotor(backward0)
+    rightmotor(backward0)
+    sleep(running_time)
 
 
 # =======================================================================

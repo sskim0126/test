@@ -74,7 +74,7 @@ def leftmotor(x):
 		GPIO.output(MotorLeft_A, GPIO.LOW)
 		GPIO.output(MotorLeft_B, GPIO.HIGH)
 	else:
-		print 'Config Error'
+		print('Config Error')
 
 def rightmotor(x):
 	if x == True:
@@ -143,7 +143,6 @@ def rightSwingTurn(speed, running_time):
 # perform left swing turn of 90 degree  
 # ======================================================================= 
 def leftSwingTurn(speed, running_time):
-
     # set the left motor pwm to be ready to stop
     # Turn Off Left PWM
     GPIO.output(MotorLeft_PWM,GPIO.LOW)  
@@ -167,11 +166,23 @@ def leftSwingTurn(speed, running_time):
 # ======================================================================
 
 def rightPointTurn(speed, running_time):  # student assignment (1)
-
+    leftmotor(forward0)
+    GPIO.output(MotorLeft_PWM,GPIO.HIGH)
+    rightmotor(backward0)
+    GPIO.output(MotorRight_PWM,GPIO.HIGH)
+    LeftPwm.ChangeDutyCycle(speed)
+    RightPwm.ChangeDutyCycle(speed)
+    time.sleep(running_time)
 
 #=======================================================================
 # perform left point turn of 90 degree   # student assignment (2)
 # ======================================================================
 
 def leftPointTurn(speed, running_time):  # student assignment (2)
-
+    leftmotor(backward0)
+    GPIO.output(MotorLeft_PWM,GPIO.HIGH)
+    rightmotor(forward0)
+    GPIO.output(MotorRight_PWM,GPIO.HIGH)
+    LeftPwm.ChangeDutyCycle(speed)
+    RightPwm.ChangeDutyCycle(speed)
+    time.sleep(running_time)
